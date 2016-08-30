@@ -14,6 +14,9 @@ import android.support.v7.widget.helper.ItemTouchHelper;
  */
 
 public class ItemTouchHelperCallback extends ItemTouchHelper.Callback {
+    /**
+     * Rebase test commit #1.
+     */
     private final ItemTouchHelperAdapter mAdapter;
 
     public ItemTouchHelperCallback(ItemTouchHelperAdapter mAdapter) {
