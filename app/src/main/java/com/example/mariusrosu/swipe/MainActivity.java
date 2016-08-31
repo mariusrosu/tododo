@@ -13,9 +13,6 @@ import com.example.mariusrosu.swipe.todo.ToDoAdapter;
 import com.example.mariusrosu.swipe.todo.ToDoItemDecoration;
 
 public class MainActivity extends AppCompatActivity implements ToDoAdapter.OnItemClickListener {
-    /**
-     * Master test commit #1.
-     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

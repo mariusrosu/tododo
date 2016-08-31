@@ -12,6 +12,9 @@ import com.example.mariusrosu.swipe.R;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Created by Marius-Andrei Rosu on 29/08/16.
  */
@@ -26,6 +29,7 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> im
     public ToDoAdapter(OnItemClickListener mItemClickListener) {
         this.mItems = new ArrayList<>(Arrays.asList(STRINGS));
         this.mItemClickListener = mItemClickListener;
+        ButterKnife.setDebug(true);
     }
 
     @Override
@@ -65,11 +69,12 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> im
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements ItemTouchHelperViewHolder {
-        private final TextView textView;
+        @BindView(R.id.text)
+        TextView textView;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            textView = (TextView) itemView.findViewById(R.id.text);
+            ButterKnife.bind(this, itemView);
         }
 
         @Override
