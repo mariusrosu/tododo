@@ -74,7 +74,7 @@ public class ToDoListActivity extends BaseActivity implements ToDoAdapter.OnItem
     }
 
     @OnClick(R.id.main_add)
-    public void onClick() {
+    public void onClick(View view) {
         Intent addTaskIntent = new Intent(this, AddTaskActivity.class);
         startActivity(addTaskIntent);
     }
