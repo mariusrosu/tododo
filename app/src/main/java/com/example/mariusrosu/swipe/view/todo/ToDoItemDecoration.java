@@ -1,4 +1,4 @@
-package com.example.mariusrosu.swipe.todo;
+package com.example.mariusrosu.swipe.view.todo;
 
 import android.graphics.Canvas;
 import android.graphics.Rect;

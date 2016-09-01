@@ -1,4 +1,4 @@
-package com.example.mariusrosu.swipe.todo;
+package com.example.mariusrosu.swipe.view.todo;
 
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
@@ -14,9 +14,6 @@ import android.support.v7.widget.helper.ItemTouchHelper;
  */
 
 public class ItemTouchHelperCallback extends ItemTouchHelper.Callback {
-    /**
-     * Rebase test commit #1.
-     */
     private final ItemTouchHelperAdapter mAdapter;
 
     public ItemTouchHelperCallback(ItemTouchHelperAdapter mAdapter) {
@@ -25,8 +22,8 @@ public class ItemTouchHelperCallback extends ItemTouchHelper.Callback {
 
     @Override
     public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
-        final int dragFlags = ItemTouchHelper.UP | ItemTouchHelper.DOWN | ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT;
-        final int swipeFlags = ItemTouchHelper.START | ItemTouchHelper.END;
+        final int dragFlags = ItemTouchHelper.UP | ItemTouchHelper.DOWN;
+        final int swipeFlags = ItemTouchHelper.END;
         return makeMovementFlags(dragFlags, swipeFlags);
     }
 

@@ -1,6 +1,7 @@
-package com.example.mariusrosu.swipe.todo;
+package com.example.mariusrosu.swipe.view.todo;
 
 import android.graphics.Color;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,13 +23,14 @@ import butterknife.ButterKnife;
 public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> implements
         ItemTouchHelperAdapter {
     private static final String[] STRINGS = new String[]{
-            "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen"};
+            "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven",
+            "Twelve", "Thirteen", "Fourteen"};
     private ArrayList<String> mItems;
-    private OnItemClickListener mItemClickListener;
+    private OnItemActionListener mItemActionListener;
 
-    public ToDoAdapter(OnItemClickListener mItemClickListener) {
+    public ToDoAdapter(@NonNull OnItemActionListener mItemActionListener) {
         this.mItems = new ArrayList<>(Arrays.asList(STRINGS));
-        this.mItemClickListener = mItemClickListener;
+        this.mItemActionListener = mItemActionListener;
         ButterKnife.setDebug(true);
     }
 
@@ -45,14 +47,9 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> im
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mItemClickListener.onItemClick(item);
+                mItemActionListener.onItemClick(item);
             }
         });
-    }
-
-    @Override
-    public int getItemCount() {
-        return mItems.size();
     }
 
     @Override
@@ -64,8 +61,19 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> im
 
     @Override
     public void onItemDismiss(int position) {
+        mItemActionListener.onItemDismiss(mItems.get(position), position);
         mItems.remove(position);
         notifyItemRemoved(position);
+    }
+
+    @Override
+    public int getItemCount() {
+        return mItems.size();
+    }
+
+    public void addItem(String item, int position) {
+        mItems.add(position, item);
+        notifyItemInserted(position);
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements ItemTouchHelperViewHolder {
@@ -88,7 +96,8 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> im
         }
     }
 
-    public interface OnItemClickListener {
+    public interface OnItemActionListener {
         void onItemClick(String item);
+        void onItemDismiss(String item, int position);
     }
 }
