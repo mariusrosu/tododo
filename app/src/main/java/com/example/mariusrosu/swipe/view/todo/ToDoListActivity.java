@@ -78,4 +78,5 @@ public class ToDoListActivity extends BaseActivity implements ToDoAdapter.OnItem
         Intent addTaskIntent = new Intent(this, AddTaskActivity.class);
         startActivity(addTaskIntent);
     }
+    //TODO: Associate with GitHub
 }
