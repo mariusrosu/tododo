@@ -3,12 +3,13 @@
     package="com.example.mariusrosu.swipe">
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.todo.ToDoListActivity">
+        <activity android:name=".view.activity.ToDoListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -16,11 +17,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.task.ViewTaskActivity"
-            android:label="@string/title_activity_scrolling"
+            android:name=".view.activity.ViewTaskActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".view.task.AddTaskActivity"
+            android:name=".view.activity.AddTaskActivity"
             android:label="@string/title_activity_add_task"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>

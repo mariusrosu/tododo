@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.mariusrosu.swipe.view.task.ViewTaskActivity"
-    tools:showIn="@layout/activity_view_task">
+    tools:context="com.example.mariusrosu.swipe.view.activity.ViewTaskActivity">
 
     <TextView
         android:layout_width="wrap_content"

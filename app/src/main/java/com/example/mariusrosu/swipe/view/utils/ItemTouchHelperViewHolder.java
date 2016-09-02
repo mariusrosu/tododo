@@ -1,4 +1,4 @@
-package com.example.mariusrosu.swipe.view.todo;
+package com.example.mariusrosu.swipe.view.utils;
 
 /**
  * Created by Marius-Andrei Rosu on 29/08/16.

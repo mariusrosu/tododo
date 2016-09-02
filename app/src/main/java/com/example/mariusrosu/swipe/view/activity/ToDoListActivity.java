@@ -1,4 +1,4 @@
-package com.example.mariusrosu.swipe.view.todo;
+package com.example.mariusrosu.swipe.view.activity;
 
 import android.content.Intent;
 import android.support.design.widget.CoordinatorLayout;
@@ -10,22 +10,20 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
 
-import com.example.mariusrosu.swipe.BaseActivity;
+import com.example.mariusrosu.swipe.model.realm.RealmController;
+import com.example.mariusrosu.swipe.view.BaseActivity;
 import com.example.mariusrosu.swipe.R;
 import com.example.mariusrosu.swipe.utils.IntentConstants;
-import com.example.mariusrosu.swipe.view.task.AddTaskActivity;
-import com.example.mariusrosu.swipe.view.task.ViewTaskActivity;
+import com.example.mariusrosu.swipe.view.adapter.RealmToDoAdapter;
+import com.example.mariusrosu.swipe.view.utils.ItemTouchHelperCallback;
+import com.example.mariusrosu.swipe.view.adapter.ToDoAdapter;
+import com.example.mariusrosu.swipe.view.utils.ToDoItemDecoration;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
+import io.realm.RealmObject;
 
 public class ToDoListActivity extends BaseActivity implements ToDoAdapter.OnItemActionListener {
-    @BindView(R.id.main_container)
-    CoordinatorLayout mCoordinatorLayout;
-
-    @BindView(R.id.main_recycler)
-    RecyclerView mRecyclerView;
+    private CoordinatorLayout mCoordinatorLayout;
+    private RecyclerView mRecyclerView;
 
     private ToDoAdapter mAdapter;
 
@@ -33,9 +31,10 @@ public class ToDoListActivity extends BaseActivity implements ToDoAdapter.OnItem
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
+        initializeViews();
 
         mAdapter = new ToDoAdapter(this);
+        mAdapter.setRealmAdapter(new RealmToDoAdapter(this, RealmController.with(this).getTasks()));
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(mAdapter);
@@ -49,15 +48,28 @@ public class ToDoListActivity extends BaseActivity implements ToDoAdapter.OnItem
         mRecyclerView.addItemDecoration(dividerItemDecoration);
     }
 
+    private void initializeViews() {
+        mRecyclerView = (RecyclerView) findViewById(R.id.main_recycler);
+        mCoordinatorLayout = (CoordinatorLayout) findViewById(R.id.main_container);
+        findViewById(R.id.main_add).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent addTaskIntent = new Intent(ToDoListActivity.this, AddTaskActivity.class);
+                startActivity(addTaskIntent);
+            }
+        });
+    }
+
     @Override
-    public void onItemClick(String item) {
+    public void onItemClick(RealmObject item) {
         Intent viewTaskIntent = new Intent(this, ViewTaskActivity.class);
-        viewTaskIntent.putExtra(IntentConstants.ITEM, item);
+        //TODO: Handle Task object instead of RealmObject here.
+        //viewTaskIntent.putExtra(IntentConstants.ITEM, item.getTitle());
         startActivity(viewTaskIntent);
     }
 
     @Override
-    public void onItemDismiss(final String item, final int position) {
+    public void onItemDismiss(final RealmObject item, final int position) {
         Snackbar dismissSnackbar = Snackbar
                 .make(mCoordinatorLayout, getString(R.string.delete_item, item), Snackbar.LENGTH_LONG)
                 .setAction(getString(R.string.undo), new View.OnClickListener() {
@@ -72,11 +84,4 @@ public class ToDoListActivity extends BaseActivity implements ToDoAdapter.OnItem
 
         dismissSnackbar.show();
     }
-
-    @OnClick(R.id.main_add)
-    public void onClick(View view) {
-        Intent addTaskIntent = new Intent(this, AddTaskActivity.class);
-        startActivity(addTaskIntent);
-    }
-    //TODO: Associate with GitHub
 }
