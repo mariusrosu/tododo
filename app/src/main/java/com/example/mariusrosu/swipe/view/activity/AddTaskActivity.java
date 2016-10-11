@@ -36,14 +36,14 @@ public class AddTaskActivity extends AppCompatActivity {
             }
         });
     }
-    //for
-    //five
-    //six
-    //one
-    //two
-    //three
-    //ala
-    //bala
-    //portocala
-    //ce?
+
+    public static final String DUMMY_STRING = "dummy_dummy_oh_so_dummy";
+
+    public String getDummyString() {
+        return DUMMY_STRING;
+    }
+
+    public void setDummyString(String newDummyString) {
+        throw new RuntimeException("It's a constant, you dummy!");
+    }
 }
