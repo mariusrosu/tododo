@@ -42,4 +42,8 @@ public class AddTaskActivity extends AppCompatActivity {
     public String getDummyString() {
         return DUMMY_STRING;
     }
+
+    public void setDummyString(String newDummyString) {
+        throw new RuntimeException("It's a constant, you dummy!");
+    }
 }
