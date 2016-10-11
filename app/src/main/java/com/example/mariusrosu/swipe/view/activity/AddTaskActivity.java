@@ -11,7 +11,6 @@ import com.example.mariusrosu.swipe.R;
 import com.example.mariusrosu.swipe.model.Task;
 import com.example.mariusrosu.swipe.model.realm.RealmController;
 
-//Haha
 public class AddTaskActivity extends AppCompatActivity {
     private EditText mTitleEditText;
     private EditText mDescriptionEditText;
@@ -24,7 +23,7 @@ public class AddTaskActivity extends AppCompatActivity {
         mDescriptionEditText = (EditText) findViewById(R.id.add_description);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-//dada
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,20 +35,4 @@ public class AddTaskActivity extends AppCompatActivity {
             }
         });
     }
-
-    public static final String DUMMY_STRING = "dummy_dummy_oh_so_dummy";
-
-    public String getDummyString() {
-        return DUMMY_STRING;
-    }
-
-    public void setDummyString(String newDummyString) {
-        throw new RuntimeException("It's a constant, you dummy!");
-    }
-    //patru
-    //cinci
-    //sase
-    //sapte
-
-    //Unu, doi, trei
 }
