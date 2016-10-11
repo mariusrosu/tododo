@@ -11,6 +11,7 @@ import com.example.mariusrosu.swipe.R;
 import com.example.mariusrosu.swipe.model.Task;
 import com.example.mariusrosu.swipe.model.realm.RealmController;
 
+//Haha
 public class AddTaskActivity extends AppCompatActivity {
     private EditText mTitleEditText;
     private EditText mDescriptionEditText;
