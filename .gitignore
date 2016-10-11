@@ -1,56 +1,9 @@
-*.gitignoreme
-.bash*
-.lesshst
-.cache*
-.profile
-.ssh/
-.viminfo
-*.pbxuser
-*.mode2v3
-project.xcworkspace/
-target/
-
-build/
-.gradle
-local.properties
-
-out/*
-*.classpath
-
-.settings
-
-# built application files
-*.apk
-*.ap_
-
-# files for the dex VM
-*.dex
-
-# Java class files
-*.class
-
-# generated files
-bin/
-gen/
-
-# Ignore gradle files
-.gradle/
-build/
-
-# Local configuration file (sdk path, etc)
-local.properties
-
-# Mac OS X clutter
-*.DS_Store
-
-# Intellij IDEA
-# Ignore IDEA generated files. We use settings.gradle to import the project in Android Studio
-.idea
 *.iml
-
-#Ignore other stuff
-app/app.iml
-.idea/misc.xml
-Swipe.iml
-.idea/workspace.xml
-.idea/vcs.xml
+.gradle
+/local.properties
+*.idea
+.DS_Store
+/build
+/captures
+*.bat
+*.db
