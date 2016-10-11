@@ -42,4 +42,7 @@ public class AddTaskActivity extends AppCompatActivity {
     //one
     //two
     //three
+    //ala
+    //bala
+    //portocala
 }
