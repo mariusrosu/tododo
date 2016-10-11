@@ -50,4 +50,6 @@ public class AddTaskActivity extends AppCompatActivity {
     //cinci
     //sase
     //sapte
+
+    //Unu, doi, trei
 }
