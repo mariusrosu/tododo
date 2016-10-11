@@ -15,6 +15,7 @@ import com.example.mariusrosu.swipe.model.realm.RealmController;
 public class AddTaskActivity extends AppCompatActivity {
     private EditText mTitleEditText;
     private EditText mDescriptionEditText;
+    private int i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
