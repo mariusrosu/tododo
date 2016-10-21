@@ -42,8 +42,4 @@ public class AddTaskActivity extends AppCompatActivity {
     //mess
     //mess //mess //mess //mess
     //Start Car1
-    //Start Car2
-    
-    
-    //test1
-}//test2
+}
