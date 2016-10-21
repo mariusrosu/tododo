@@ -26,6 +26,9 @@ public class ToDoListActivity extends BaseActivity implements ToDoAdapter.OnItem
     private RecyclerView mRecyclerView;
 
     private ToDoAdapter mAdapter;
+    int a;
+    int integerFor;
+    float someFloat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
