@@ -3,3 +3,6 @@ Commit 2
 Commit 3
 
 Squash final #1
+Squash final #2
+Squash final #3
+Squash final #4
