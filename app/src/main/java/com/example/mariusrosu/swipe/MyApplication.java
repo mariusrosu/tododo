@@ -25,7 +25,6 @@ public class MyApplication extends Application {
 }
 
 /*
- First commit modified
- Second commit
- Third commit
+ Second fix attempt
+ Hope this fixes the problem
  */
