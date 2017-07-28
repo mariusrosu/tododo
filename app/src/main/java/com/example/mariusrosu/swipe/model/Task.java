@@ -6,7 +6,7 @@ import io.realm.annotations.PrimaryKey;
 /**
  * Created by Marius-Andrei Rosu on 02/09/16.
  */
-
+//Changes for some fix #1
 public class Task extends RealmObject {
     @PrimaryKey
     private long mId;
